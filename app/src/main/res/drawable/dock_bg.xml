@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Glass panel: translucent fill, faint edge, and a brighter rim along the top where
+     light would catch it. No real blur behind it: RenderEffect on a backdrop needs
+     API 31, above minSdk 26. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/dock" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/dock_edge" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+    <item
+        android:bottom="40dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#00FFFFFF"
+                android:startColor="#1FFFFFFF" />
+            <corners
+                android:topLeftRadius="25dp"
+                android:topRightRadius="25dp" />
+        </shape>
+    </item>
+</layer-list>

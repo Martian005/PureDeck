@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Light catching the top of the focused tile. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:centerColor="#0DFFFFFF"
+        android:centerY="0.45"
+        android:endColor="#00FFFFFF"
+        android:startColor="#38FFFFFF" />
+</shape>

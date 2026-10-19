@@ -1,0 +1,14 @@
+# Copy this file to local.properties (it is git-ignored) and fill in what you need.
+
+# Path to your Android SDK. Android Studio writes this for you.
+sdk.dir=C\\Users\\YOU\\AppData\\Local\\Android\\Sdk
+
+# Where the TV app gets its catalogue from: the server in the api/ folder, deployed on Vercel.
+# Leave blank to talk to TMDB directly with the key below (some ISPs block TMDB, see README).
+catalogue.baseUrl=https://YOUR-PROJECT.vercel.app
+
+# Two-letter country code used for "where to watch" and trending.
+tmdb.region=IN
+
+# Only needed when catalogue.baseUrl is blank. TMDB v3 "API Key", not the Read Access Token.
+tmdb.apiKey=

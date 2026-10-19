@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shown when an app is selected in the all-apps grid. INVISIBLE rather than GONE so it is
+     measured when it opens. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/actionsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="invisible">
+
+    <View
+        android:id="@+id/actionsScrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/scrim_strong" />
+
+    <LinearLayout
+        android:id="@+id/actionsCard"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/panel_bg"
+        android:elevation="24dp"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="14dp">
+
+            <ImageView
+                android:id="@+id/actionsIcon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/glass_small_bg"
+                android:contentDescription="@null"
+                android:foreground="@drawable/glass_small_rim"
+                android:padding="6dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/actionsName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/actionsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</FrameLayout>

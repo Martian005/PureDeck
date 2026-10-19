@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rounded glass plate for small artwork (platform logos, posters). clipToOutline on the view
+     uses this shape's outline, which is what rounds the image itself. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="#1AFFFFFF"
+        android:startColor="#47FFFFFF" />
+    <corners android:radius="10dp" />
+</shape>

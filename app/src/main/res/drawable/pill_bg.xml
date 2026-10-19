@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Profile pill. The focused state must be obvious: it is reached only by D-pad. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glass_focused" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/focus" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/dock" />
+            <corners android:radius="24dp" />
+        </shape>
+    </item>
+</selector>

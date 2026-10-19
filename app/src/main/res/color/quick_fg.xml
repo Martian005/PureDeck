@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Text and icon flip to dark on the white focused pill. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/row_focused_fg" android:state_focused="true" />
+    <item android:color="@color/text" />
+</selector>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pads a short top row. minHeight keeps the glass row full height when nothing
+     is pinned, where it shows the hint instead. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="9dp"
+    android:focusable="false"
+    android:minHeight="72dp">
+
+    <TextView
+        android:id="@+id/fillerHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/pin_hint"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp" />
+
+</FrameLayout>

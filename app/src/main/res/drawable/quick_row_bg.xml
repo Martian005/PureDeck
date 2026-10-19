@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Focused row becomes a solid white pill, like the tvOS sidebar. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="140"
+    android:exitFadeDuration="180">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/row_focused" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+</selector>

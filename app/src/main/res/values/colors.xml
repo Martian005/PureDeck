@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_bottom">#05060A</color>
+    <color name="black">#000000</color>
+    <color name="tile">#22242C</color>
+
+    <color name="text">#F2F2F4</color>
+    <color name="text_secondary">#B3F2F2F4</color>
+    <color name="text_shadow">#CC000000</color>
+    <color name="text_tertiary">#80F2F2F4</color>
+
+    <!-- Glass: translucent fill plus a faint light edge -->
+    <color name="dock">#4D2A2C34</color>
+    <color name="dock_edge">#33FFFFFF</color>
+    <color name="glass_focused">#40FFFFFF</color>
+    <color name="panel">#F7121318</color>
+    <color name="panel_top">#E63A3540</color>
+    <color name="panel_bottom">#F0141317</color>
+    <color name="row_focused">#F2FFFFFF</color>
+    <color name="row_focused_fg">#1C1C1E</color>
+    <color name="row_focused_fg_secondary">#991C1C1E</color>
+    <color name="badge">#26FFFFFF</color>
+    <color name="badge_focused">#1F000000</color>
+    <color name="scrim_strong">#B3000000</color>
+    <color name="scrim">#66000000</color>
+    <color name="avatar">#33FFFFFF</color>
+    <color name="hero_shade">#33000000</color>
+
+    <!-- referenced by the launcher banner/icon placeholder -->
+    <color name="bg">#0B0B0C</color>
+    <color name="focus">#FFFFFF</color>
+</resources>

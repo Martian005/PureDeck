@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frosted-glass plate behind icons that have no wide banner: translucent so the hero shows
+     through, a brighter upper half where light lands, and a thin bright rim. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#1AFFFFFF"
+                android:startColor="#47FFFFFF" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+    <item android:bottom="48dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="#00FFFFFF"
+                android:startColor="#38FFFFFF" />
+            <corners
+                android:topLeftRadius="18dp"
+                android:topRightRadius="18dp" />
+        </shape>
+    </item>
+</layer-list>

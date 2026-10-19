@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_bottom"
+    android:clipChildren="false">
+
+    <!-- Two stacked layers so backdrops can crossfade. Alpha driven from code.
+         A flat shade (not a gradient) keeps white text legible on bright art. -->
+    <ImageView
+        android:id="@+id/heroLower"
+        android:layerType="hardware"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:tint="@color/hero_shade"
+        android:tintMode="src_atop"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/heroUpper"
+        android:layerType="hardware"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:tint="@color/hero_shade"
+        android:tintMode="src_atop"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/heroTint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+    <!-- Artwork fades gradually to black toward the bottom, under the dock. -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/scrim_bottom" />
+
+    <!-- Darkens the hero when focus moves down into the full app grid. -->
+    <View
+        android:id="@+id/heroDimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/titleBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="@dimen/edge_h"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/heroSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:letterSpacing="0.08"
+            android:shadowColor="@color/text_shadow"
+            android:shadowRadius="8"
+            android:textAllCaps="true"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/heroTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:maxWidth="620dp"
+            android:maxLines="2"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:textColor="@color/text"
+            android:textSize="44sp"
+            android:textStyle="bold|italic" />
+
+        <!-- Replaces heroTitle when TMDB has a logo for the featured show. -->
+        <ImageView
+            android:id="@+id/heroLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:maxWidth="460dp"
+            android:maxHeight="120dp"
+            android:scaleType="fitStart"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- paddingTop puts the glass row in the lower quarter of the screen, tvOS-style,
+         with the next row peeking at the bottom edge. Scrolling down slides the grid
+         up over the hero. 395dp is tuned for a 540dp-tall (1080p @ xhdpi) TV. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:layoutAnimation="@anim/layout_tiles"
+        android:paddingStart="@dimen/edge_h"
+        android:paddingTop="395dp"
+        android:paddingEnd="@dimen/edge_h"
+        android:paddingBottom="24dp" />
+
+    <!-- After the grid so it draws on top. Both are focusable: Up from the top row lands here. -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="@dimen/edge_h"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/searchButton"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/pill_bg"
+        android:clickable="true"
+        android:contentDescription="@string/search"
+        android:focusable="true"
+        android:padding="12dp"
+        android:src="@drawable/ic_qs_search" />
+
+    <LinearLayout
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pill_bg"
+        android:clickable="true"
+        android:contentDescription="@string/profile_menu"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:id="@+id/clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/text"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/avatar_circle"
+            android:contentDescription="@null"
+            android:padding="6dp"
+            android:src="@drawable/ic_qs_person" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/moveHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="28dp"
+        android:alpha="0"
+        android:background="@drawable/pill_bg_static"
+        android:paddingHorizontal="22dp"
+        android:paddingVertical="10dp"
+        android:text="@string/move_hint_pinned"
+        android:textColor="@color/text"
+        android:textSize="15sp" />
+
+    <!-- Quick settings: a floating glass card that grows out of the profile pill.
+         INVISIBLE rather than GONE so it is measured and its pivot is known on open. -->
+    <FrameLayout
+        android:id="@+id/panelRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <View
+            android:id="@+id/panelScrim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/scrim" />
+
+        <LinearLayout
+            android:id="@+id/panel"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="@dimen/edge_h"
+            android:background="@drawable/panel_bg"
+            android:elevation="24dp"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="14dp">
+
+                <ImageView
+                    android:id="@+id/panelAvatar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/avatar_circle"
+                    android:contentDescription="@null"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_qs_person" />
+
+                <TextView
+                    android:id="@+id/panelName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/panelClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <!-- Long pages (the app list) scroll instead of running off the TV. -->
+            <com.puredeck.launcher.MaxHeightScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdgeLength="24dp"
+                android:requiresFadingEdge="vertical"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/quickList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </com.puredeck.launcher.MaxHeightScrollView>
+
+        </LinearLayout>
+
+</FrameLayout>
+
+    <include layout="@layout/view_app_actions" />
+
+    <!-- Drawn last so it sits above everything, including the quick-settings card. -->
+    <include layout="@layout/view_search" />
+
+</FrameLayout>

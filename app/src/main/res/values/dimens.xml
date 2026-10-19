@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Horizontal overscan margin: TV panels crop the outer edges of the signal. -->
+    <dimen name="edge_h">40dp</dimen>
+    <!-- How far the glass panel extends past the top-row tiles. -->
+    <dimen name="dock_pad">12dp</dimen>
+    <!-- Vertical room between grid rows below the dock. -->
+    <dimen name="grid_row_gap">28dp</dimen>
+    <!-- Clearance between the glass row and the first grid row. -->
+    <dimen name="dock_to_grid_gap">18dp</dimen>
+</resources>
